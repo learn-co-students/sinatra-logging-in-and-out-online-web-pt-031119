@@ -7,6 +7,9 @@
   </head>
   <body id="page-top">
     <a href="/logout">Log Out</a>
-
+    <% if self.is_logged_in? %>
+    	<p>Username: <%= @user.username %></p><br>
+    	<p>Account Balance: <%= @user.balance %></p><br>
+    <% end %>
   </body>
 </html>
