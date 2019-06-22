@@ -7,10 +7,9 @@
   </head>
   <body id="page-top">
     <a href="/logout">Log Out</a>
-    binding.pry
-    <% if self.is_logged_in? %>
-    	<p>Username: <%= self.current_user.username %></p><br>
-    	<p>Account Balance: <%= self.current_user.balance %></p><br>
+    <% if Helpers.is_logged_in?(session) %>
+    	<h1>Welcome <%= Helpers.current_user(session).username %></h1><br>
+    	<h3>Your Balance: <%= Helpers.current_user(session).balance %></h3><br>
     <% else %>
     	<p>You Must <a href="/">Log In</a> to View Your Balance</p><br>
     <% end %>
