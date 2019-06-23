@@ -79,7 +79,7 @@ describe 'ApplicationController' do
       user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
-      } 
+      }   
       post '/login', params
       get '/account'
       expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
