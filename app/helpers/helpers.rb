@@ -1,15 +1,13 @@
-class Helpers < ActiveRecord::Base
-
-  def self.current_user(user)
-    @user = User.find_by(id: user[:user_id])
-  end 
-
-  def self.is_logged_in?(user)
-    if user[:user_id]
-      true 
-    else 
-      false 
+class Helpers
+  
+  def self.current_user(session)
+    if session[:user_id] != nil 
+      User.find(session[:user_id])
     end 
-  end
-
-end 	
+  end 
+  
+  def self.is_logged_in?(session)
+    #binding.pry
+    Helpers.current_user(session) ? true : false
+  end 
+end
